@@ -3,75 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nicks Archery 101 Site</title>
+    <title>Archer's Progress Tracker</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
 </head>
-<body>
-    <header>
-        <h1>Nicks Archery 101 Site</h1>
-        <p>Your complete guide to getting started in archery</p>
+<body data-page="dashboard">
+    <header class="site-header">
+        <div class="branding">
+            <h1>Archer's Progress Tracker</h1>
+            <p>Track, learn, and stay motivated on your archery journey.</p>
+        </div>
+        <nav class="main-nav">
+            <a href="index.html" class="active">Dashboard</a>
+            <a href="calendar.html">Practice Calendar</a>
+            <a href="day.html">Log a Session</a>
+            <a href="links.html">Learning Vault</a>
+            <a href="getting-started.html">Learning Library</a>
+        </nav>
     </header>
 
-    <main>
-        <section class="intro">
-            <h2>Welcome to Archery</h2>
-            <p>Whether you're completely new to archery or looking to improve your fundamentals, this guide covers everything you need to know to start your archery journey safely and effectively.</p>
+    <main class="dashboard">
+        <section class="stats-grid" aria-label="Practice statistics overview">
+            <article class="stat-card">
+                <h2>Total Sessions</h2>
+                <p id="totalSessions" class="stat-value">0</p>
+                <p class="stat-subtext">Keep showing up and those numbers will climb.</p>
+            </article>
+            <article class="stat-card">
+                <h2>Bullseyes Logged</h2>
+                <p id="bullseyeCount" class="stat-value">0</p>
+                <p class="stat-subtext">Consistency beats luck—keep tracking accuracy.</p>
+            </article>
+            <article class="stat-card">
+                <h2>Current Streak</h2>
+                <p id="currentStreak" class="stat-value">0 days</p>
+                <p id="streakMessage" class="stat-subtext">Let's light the fuse on a new streak!</p>
+            </article>
+            <article class="stat-card">
+                <h2>This Month</h2>
+                <p id="monthlySessions" class="stat-value">0 sessions</p>
+                <p class="stat-subtext">Aim for at least 8 sessions every month.</p>
+            </article>
         </section>
 
-        <nav class="guide-navigation">
-            <h2>Essential Topics</h2>
-            <div class="nav-grid">
-                <a href="bow-types.html" class="nav-card">
-                    <h3>Understanding Bow Types</h3>
-                    <p>Learn about recurve, compound, and traditional bows to find what's right for you</p>
-                </a>
+        <section class="dashboard-panels">
+            <section class="panel highlight" aria-labelledby="panel-highlight">
+                <div class="panel-header">
+                    <h2 id="panel-highlight">Today's Nudge</h2>
+                </div>
+                <div id="motivationCard" class="motivation-card"></div>
+            </section>
 
-                <a href="picking-bow.html" class="nav-card">
-                    <h3>How to Pick the Right Bow</h3>
-                    <p>Guidelines for selecting your first bow based on your goals and physical characteristics</p>
-                </a>
+            <section class="panel recent" aria-labelledby="panel-recent">
+                <div class="panel-header">
+                    <h2 id="panel-recent">Recent Sessions</h2>
+                    <a href="calendar.html" class="panel-link">View calendar</a>
+                </div>
+                <ul id="recentSessions" class="timeline" aria-live="polite"></ul>
+            </section>
 
-                <a href="bow-tuning.html" class="nav-card">
-                    <h3>Bow Management & Tuning</h3>
-                    <p>Essential maintenance, setup, and tuning techniques to keep your bow performing optimally</p>
-                </a>
+            <section class="panel resources" aria-labelledby="panel-resources">
+                <div class="panel-header">
+                    <h2 id="panel-resources">Spotlight Resource</h2>
+                    <a href="links.html" class="panel-link">Manage resources</a>
+                </div>
+                <div id="spotlightResource" class="spotlight"></div>
+            </section>
+        </section>
 
-                <a href="getting-started.html" class="nav-card">
-                    <h3>Getting Started with Shooting</h3>
-                    <p>Basic safety, range etiquette, and your first steps to start shooting arrows</p>
-                </a>
-
-                <a href="proper-form.html" class="nav-card">
-                    <h3>Proper Form & Posture</h3>
-                    <p>Master the fundamental stance, grip, and shooting technique for consistent accuracy</p>
-                </a>
-
-                <a href="aiming.html" class="nav-card">
-                    <h3>How to Aim Correctly</h3>
-                    <p>Sight alignment, aiming techniques, and developing consistent shooting patterns</p>
-                </a>
-
-                <a href="arrow-selection.html" class="nav-card">
-                    <h3>Choosing the Right Arrows</h3>
-                    <p>Understanding arrow spine, weight, and length to match your bow and shooting style</p>
-                </a>
+        <section class="learning-grid" aria-labelledby="learning-heading">
+            <div class="panel-header">
+                <h2 id="learning-heading">Skill Boost Playlist</h2>
+                <p>Rotate through these reads and videos to level up each week.</p>
             </div>
-        </nav>
-
-        <section class="getting-started-tips">
-            <h2>Quick Start Tips</h2>
-            <ul>
-                <li><strong>Safety First:</strong> Always follow range rules and never point a bow at anyone</li>
-                <li><strong>Start Light:</strong> Begin with a lower draw weight to develop proper form</li>
-                <li><strong>Get Instruction:</strong> Consider taking lessons from a certified archery instructor</li>
-                <li><strong>Practice Regularly:</strong> Consistent practice builds muscle memory and accuracy</li>
-                <li><strong>Be Patient:</strong> Archery skills develop over time - focus on form over distance initially</li>
-            </ul>
+            <div class="learning-columns">
+                <div>
+                    <h3>Articles & Guides</h3>
+                    <ul id="articleList" class="resource-list"></ul>
+                </div>
+                <div>
+                    <h3>Watch & Learn</h3>
+                    <ul id="videoList" class="resource-list"></ul>
+                </div>
+            </div>
         </section>
     </main>
 
-    <footer>
-        <p>© 2025 Archery 101 Guide - Learn archery safely and effectively</p>
+    <footer class="site-footer">
+        <p>Keep your form steady and your mindset curious. You've got this.</p>
     </footer>
 </body>
 </html>

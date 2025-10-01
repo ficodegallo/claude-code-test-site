@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Vault • Archer's Progress Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+</head>
+<body data-page="links">
+    <header class="site-header">
+        <div class="branding">
+            <h1>Learning Vault</h1>
+            <p>Curate the content that sharpens your aim and your mindset.</p>
+        </div>
+        <nav class="main-nav">
+            <a href="index.html">Dashboard</a>
+            <a href="calendar.html">Practice Calendar</a>
+            <a href="day.html">Log a Session</a>
+            <a href="links.html" class="active">Learning Vault</a>
+            <a href="getting-started.html">Learning Library</a>
+        </nav>
+    </header>
+
+    <main class="links-page">
+        <section class="panel">
+            <div class="panel-header">
+                <h2>Add a Resource</h2>
+                <p class="panel-subtitle">Keep the good stuff in one place—articles, videos, and gear research.</p>
+            </div>
+            <form id="resourceForm" class="resource-form">
+                <div class="form-grid">
+                    <label class="form-field">
+                        <span>Title</span>
+                        <input type="text" id="resourceTitle" required placeholder="E.g. Shot Cycle Deep Dive">
+                    </label>
+                    <label class="form-field">
+                        <span>Link</span>
+                        <input type="url" id="resourceUrl" required placeholder="https://...">
+                    </label>
+                    <label class="form-field">
+                        <span>Category</span>
+                        <select id="resourceCategory">
+                            <option value="article">Article / Guide</option>
+                            <option value="video">Video / Webinar</option>
+                            <option value="equipment">Equipment Research</option>
+                            <option value="community">Community & Coaching</option>
+                        </select>
+                    </label>
+                    <label class="form-field">
+                        <span>Why it matters</span>
+                        <input type="text" id="resourceNotes" placeholder="What you want to learn or remember">
+                    </label>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="primary">Save resource</button>
+                    <button type="reset" class="secondary">Clear</button>
+                </div>
+                <p id="resourceMessage" class="form-message" role="alert" aria-live="polite"></p>
+            </form>
+        </section>
+
+        <section class="panel">
+            <div class="panel-header">
+                <h2>Your Vault</h2>
+                <div class="filters">
+                    <label for="categoryFilter" class="visually-hidden">Filter by category</label>
+                    <select id="categoryFilter">
+                        <option value="all">All categories</option>
+                        <option value="article">Articles</option>
+                        <option value="video">Videos</option>
+                        <option value="equipment">Equipment</option>
+                        <option value="community">Community</option>
+                    </select>
+                </div>
+            </div>
+            <ul id="resourceList" class="vault-list"></ul>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Feature a resource to surface it on your dashboard spotlight.</p>
+    </footer>
+</body>
+</html>

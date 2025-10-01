@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Calendar • Archer's Progress Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+</head>
+<body data-page="calendar">
+    <header class="site-header">
+        <div class="branding">
+            <h1>Practice Calendar</h1>
+            <p>Celebrate the days you showed up. Plan for the days ahead.</p>
+        </div>
+        <nav class="main-nav">
+            <a href="index.html">Dashboard</a>
+            <a href="calendar.html" class="active">Practice Calendar</a>
+            <a href="day.html">Log a Session</a>
+            <a href="links.html">Learning Vault</a>
+            <a href="getting-started.html">Learning Library</a>
+        </nav>
+    </header>
+
+    <main class="calendar-page">
+        <section class="calendar-controls" aria-label="Calendar navigation">
+            <button id="prevMonth" class="calendar-nav" type="button" aria-label="View previous month">◀</button>
+            <h2 id="monthLabel" aria-live="polite">Month YYYY</h2>
+            <button id="nextMonth" class="calendar-nav" type="button" aria-label="View next month">▶</button>
+        </section>
+
+        <section class="calendar-grid" aria-label="Practice calendar">
+            <div class="calendar-row calendar-headings">
+                <span>Sun</span>
+                <span>Mon</span>
+                <span>Tue</span>
+                <span>Wed</span>
+                <span>Thu</span>
+                <span>Fri</span>
+                <span>Sat</span>
+            </div>
+            <div id="calendarDays" class="calendar-days"></div>
+        </section>
+
+        <aside class="calendar-sidebar" aria-label="Streak details">
+            <h2>Streak Tracker</h2>
+            <p id="streakSummary">No sessions logged yet.</p>
+            <ul id="streakHighlights" class="streak-list"></ul>
+            <div class="calendar-legend">
+                <p><span class="legend-color legend-shot"></span> Practice day</p>
+                <p><span class="legend-color legend-streak"></span> Part of your current streak</p>
+            </div>
+        </aside>
+    </main>
+
+    <footer class="site-footer">
+        <p>Tap a day to review or add your reps. Every arrow counts.</p>
+    </footer>
+</body>
+</html>
