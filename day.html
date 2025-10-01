@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log a Practice Session • Archer's Progress Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+</head>
+<body data-page="day">
+    <header class="site-header">
+        <div class="branding">
+            <h1>Log a Practice Session</h1>
+            <p>Capture the details so you can learn from every arrow loosed.</p>
+        </div>
+        <nav class="main-nav">
+            <a href="index.html">Dashboard</a>
+            <a href="calendar.html">Practice Calendar</a>
+            <a href="day.html" class="active">Log a Session</a>
+            <a href="links.html">Learning Vault</a>
+            <a href="getting-started.html">Learning Library</a>
+        </nav>
+    </header>
+
+    <main class="day-log">
+        <section class="panel">
+            <div class="panel-header">
+                <h2>Session Details</h2>
+                <p class="panel-subtitle">Tell future-you what worked, what to tweak, and what to celebrate.</p>
+            </div>
+            <form id="sessionForm" class="session-form">
+                <div class="form-grid">
+                    <label class="form-field">
+                        <span>Date</span>
+                        <input type="date" id="sessionDate" required>
+                    </label>
+                    <label class="form-field">
+                        <span>Location</span>
+                        <input type="text" id="sessionLocation" placeholder="Local range, backyard, club night...">
+                    </label>
+                    <label class="form-field">
+                        <span>Session Focus</span>
+                        <select id="sessionFocus">
+                            <option value="form">Form & posture</option>
+                            <option value="accuracy">Accuracy & grouping</option>
+                            <option value="distance">Long range practice</option>
+                            <option value="tuning">Equipment tuning</option>
+                            <option value="mental">Mental reps & visualization</option>
+                        </select>
+                    </label>
+                    <label class="form-field">
+                        <span>Arrows Shot</span>
+                        <input type="number" id="arrowsShot" min="0" step="1" placeholder="E.g. 60">
+                    </label>
+                    <label class="form-field">
+                        <span>Bullseyes</span>
+                        <input type="number" id="bullseyes" min="0" step="1" placeholder="Count the hits!">
+                    </label>
+                    <label class="form-field">
+                        <span>Session Quality</span>
+                        <input type="range" id="sessionQuality" min="1" max="5" value="3">
+                        <div class="range-labels" aria-hidden="true">
+                            <span>Rough</span>
+                            <span>Dialed In</span>
+                        </div>
+                    </label>
+                </div>
+                <label class="form-field">
+                    <span>Highlights & notes</span>
+                    <textarea id="sessionNotes" rows="5" placeholder="What felt solid? What needs work? Any equipment tweaks?"></textarea>
+                </label>
+                <div class="form-actions">
+                    <button type="submit" class="primary">Save session</button>
+                    <button type="button" id="deleteSession" class="danger">Delete session</button>
+                    <a href="calendar.html" class="secondary">Back to calendar</a>
+                </div>
+                <p id="formMessage" class="form-message" role="alert" aria-live="polite"></p>
+            </form>
+        </section>
+
+        <section class="panel reflection">
+            <div class="panel-header">
+                <h2>Reflection Prompts</h2>
+            </div>
+            <ul id="promptList" class="prompt-list"></ul>
+        </section>
+
+        <section class="panel previous" aria-live="polite">
+            <div class="panel-header">
+                <h2>Last Session Snapshot</h2>
+            </div>
+            <div id="lastSession" class="session-summary">No previous sessions logged yet.</div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Progress loves detail. The better you document, the faster you improve.</p>
+    </footer>
+</body>
+</html>
